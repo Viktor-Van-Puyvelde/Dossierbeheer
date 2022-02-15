@@ -1,19 +1,27 @@
 import React, {useEffect, useState} from "react";
 import { StyleSheet, View, Text, FlatList, Button } from "react-native";
-import mock from "../mockData";
+import mockTreat from '../mockTreatments'
 
 const TreatmentsDetails = ({ navigation }) => {
-  const [date, setDate] = useState([]);
+  const [id, setId] = useState(navigation.getParam('id'));
+  const [treatments, setTreatments] = useState(mockTreat);
 
   useEffect(() => {
-    setDate(navigation.getParam('date'));
-  })
-
-  console.log(date);
+    setTreatments(treatments.filter(t => t.customerId === id));
+  }, [])
 
   return(
     <View>
-      <Text>{date}</Text>
+      <Text>{id}</Text>
+      <View>
+        {treatments.map((item, key) => 
+        <Text key={key}>
+          Datum: {item.date}{"\n"}
+          Aandoening: {item.condition}{"\n"}
+          Behandeling: {item.treatment}{"\n"}{"\n"}
+        </Text>
+        )}
+      </View>
     </View>
   )
 }

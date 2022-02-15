@@ -1,4 +1,5 @@
 const mock = [{
+    id: 1,
     forName: 'Viktor',
     name: 'Van Puyvelde',
     place: 'Potterstraat 51 9170 Sint-Pauwels',
@@ -14,6 +15,7 @@ const mock = [{
     }]
   },
   {
+    id: 2,
     forName: 'Anneke',
     name: 'Buys',
     place: 'Potterstraat 93 9170 Sint-Pauwels',

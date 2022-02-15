@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 
 const CustomerDetail = ({ navigation }) => {
+  const [id, setId] = useState([])
   const [forName, setForName] = useState([]);
   const [name, setName] = useState([]);
   const [place, setPlace] = useState([]);
@@ -17,6 +18,7 @@ const CustomerDetail = ({ navigation }) => {
   }
 
   useEffect(() => {
+    setId(navigation.getParam('id'))
     setForName(navigation.getParam('forName'));
     setName(navigation.getParam('name'));
     setPlace(navigation.getParam('place'));
@@ -38,7 +40,7 @@ const CustomerDetail = ({ navigation }) => {
       <Text>{sex}</Text>
       <Text>{deceases}</Text>
       <Text>{medication}</Text>
-      <Button title="Bekijk behandelinngen" onPress={() => pressHandler('TreatmentsDetails', treatments)}/>
+      <Button title="Bekijk behandelinngen" onPress={() => pressHandler('TreatmentsDetails', {id})}/>
     </View>
   )
 }
